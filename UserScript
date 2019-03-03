@@ -1,139 +1,69 @@
 // ==UserScript==
-// @name         Yande.re 大图浏览脚本
-// @namespace    https://github.com/mouyase/Yande.re_large_picture_script
+// @name         Yande.re 标签翻译
+// @namespace    https://github.com/mouyase/yande.re_tag_translate_script
 // @version      0.1
-// @description  Stylish倒了之后的Yande.re大图插件替代品
+// @description  翻译Booru类图站
 // @author       某亚瑟
 // @match        https://yande.re/post*
 // @match        https://yande.re.4cy.me/post*
+// @match        https://gelbooru.com/*
 // @grant        none
+// @require      https://code.jquery.com/jquery-3.3.1.js
 // ==/UserScript==
 (function() {
     'use strict';
-    appendCSS();
-    function appendCSS() {
-        var cssText = "";
+    var jquery = $.noConflict();
 
-        //底部信息css
-        cssText += '.tag-type-circle:after {';
-        cssText += '	content: "社团";';
-        cssText += '	color: #aa4';
-        cssText += '}';
+    /*关键词表*/
+    var keywords = [
+		["girls frontline", "少女前线"],
+		["suomi kp31 (girls frontline)", "索米KP31（少女前线）"],
+		["animal ears","兽耳"],
+		["maid","女仆"],
+		["thighhighs","过膝袜"],
+		["pantsu","胖次"],
+		["loli","萝莉"],
+		["pussy juice","妹汁"],
+		["panty pull","半脱胖次"],
+		["pussy","小穴"],
+		["bra","胸罩"],
+		["sex","性交"],
+		["feet","脚"],
+		["girls und panzer","少女与战车"],
+		["girls und panzer gekijouban","少女与战车剧场版"],
+		["ass grab","抓屁股"],
+		["censored","骑兵"],
+		["cleavage","事业线"],
+		["nipples","乳头"],
+		["seifuku","制服"],
+		["dress","连衣裙"],
+		["ass","屁股"],
+		["bikini","比基尼"],
+		["sword","剑"],
+		["penis","杰宝"],
+		["anus","菊花"],
+		["nopan","没有胖次"],
+		["no bra","没有胸罩"],
+		["uncensored","步兵"],
+		["paizuri","乳交"],
+		["naked","裸体"],
+		["bathing","洗澡"],
+        ["the idolm@ster","偶像大师"],
+        ["the idolm@ster cinderella girls","偶像大师灰姑娘女孩"]
+	];
 
-        cssText += '.tag-type-copyright:after {';
-        cssText += '	content: "版权";';
-        cssText += '	color: #aa4';
-        cssText += '}';
+    modifyHtml();
 
-        cssText += '.tag-type-artist:after {';
-        cssText += '	content: "画师";';
-        cssText += '	color: #aa4';
-        cssText += '}';
-
-        cssText += '.tag-type-character:after {';
-        cssText += '	content: "角色";';
-        cssText += '	color: #aa4';
-        cssText += '}';
-
-        cssText += '.tag-type-faults:after {';
-        cssText += '	content: "错误";';
-        cssText += '	color: #aa4';
-        cssText += '}';
-
-        cssText += '.tag-type-style:after {';
-        cssText += '	content: "类型";';
-        cssText += '	color: #aa4';
-        cssText += '}';
-
-        cssText += '#highres {';
-        cssText += '	color: red;';
-        cssText += '	border: 1px dashed white;';
-        cssText += '	padding: 4px 0 4px 4px;';
-        cssText += '	margin: 4px 0 4px -4px;';
-        cssText += '	display: inline-block;';
-        cssText += '	width: 220px';
-        cssText += '}';
-
-        cssText += '#highres:hover {';
-        cssText += '	color: yellow!important;';
-        cssText += '	border-color: red';
-        cssText += '}';
-
-        cssText += '.sidebar {';
-        cssText += '	margin: 0!important;';
-        cssText += '	max-width: 230px!important';
-        cssText += '}';
-
-        cssText += '.action-post-index .content {';
-        cssText += '	width: 80%!important';
-        cssText += '}';
-
-        cssText += '#content {';
-        cssText += '	width: 100%!important';
-        cssText += '}';
-
-        cssText += 'div.content div[align=center] {';
-        cssText += '	display: none!important';
-        cssText += '}';
-
-        cssText += 'span.directlink-info {';
-        cssText += '	display: none!important';
-        cssText += '}';
-
-        cssText += 'span.plid {';
-        cssText += '	display: none!important';
-        cssText += '}';
-
-        cssText += 'span.directlink-res {';
-        cssText += '	display: block!important';
-        cssText += '}';
-
-        cssText += '.directlink.smallimg {';
-        cssText += '	background: black!important';
-        cssText += '}';
-
-        cssText += '#post-list-posts li {';
-        cssText += '	width: 310px!important;';
-        cssText += '	visibility: visible!important;';
-        cssText += '	display: inline-block!important';
-        cssText += '}';
-
-        cssText += 'div.inner {';
-        cssText += '	width: 310px!important;';
-        cssText += '	height: 300px!important';
-        cssText += '}';
-
-        cssText += 'div.content {';
-        cssText += '    float: right;';
-        cssText += '}';
-
-        cssText += 'img.preview {';
-        cssText += '	width: auto!important;';
-        cssText += '	max-width: 300px!important;';
-        cssText += '	height: auto!important;';
-        cssText += '	max-height: 300px!important;';
-        cssText += '	border: none!important';
-        cssText += '}';
-
-        cssText += '#lsidebar {';
-        cssText += '	display: none!important';
-        cssText += '}';
-        console.log('CSS创建完成');
-
-        var element = document.createElement('link');
-        element.rel = "stylesheet";
-        element.type = "text/css";
-        element.href = 'data:text/css,' + cssText;
-
-        document.documentElement.appendChild(element);
-
-        var modStyle = document.querySelector('#modCSS');
-        if (modStyle === null) {
-            modStyle = document.createElement('style');
-            modStyle.id = 'modCSS';
-            document.body.appendChild(modStyle);
-            modStyle.innerHTML = cssText;
+    function modifyHtml() {
+        console.log('TAG汉化开始');
+        for (var i = 0; i < keywords.length; i++) {
+            var string = jquery("a:contains(" + keywords[i][0] + ")").map(function() {
+                if (jquery(this).text() == keywords[i][0]) {
+                    return this;
+                }
+            });
+            string.html(keywords[i][1]+"【"+keywords[i][0]+"】");
         }
-        console.log('CSS已添加');
+        console.log('TAG汉化结束');
     }
 })();
