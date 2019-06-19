@@ -17,6 +17,9 @@
 	modifyHtml();
 
 	function modifyHtml() {
-		var keymap=jQuery.ajax({url:"https://raw.githubusercontent.com/mouyase/yande.re_tag_translate_script/dev/KeyMap",async:false}).responseText;
+		var script = document.createElement('script');
+		script.setAttribute('type','text/javascript');
+		script.setAttribute('src','https://raw.githubusercontent.com/mouyase/yande.re_tag_translate_script/dev/KeyMap.js');
+		document.getElementsByTagName('head')[0].appendChild(script);
 	}
 })();
