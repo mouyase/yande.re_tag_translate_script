@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Yande.re 标签翻译
 // @namespace    https://github.com/mouyase/yande.re_tag_translate_script
-// @version      0.1
+// @version      0.2
 // @description  翻译Booru类图站
 // @author       某亚瑟
 // @match        https://yande.re/post*
@@ -9,6 +9,7 @@
 // @match        https://gelbooru.com/*
 // @grant        none
 // @require      https://code.jquery.com/jquery-3.3.1.js
+// @require      https://raw.githubusercontent.com/mouyase/yande.re_tag_translate_script/dev/KeyMap.js
 // ==/UserScript==
 (function() {
 	'use strict';
@@ -17,9 +18,5 @@
 	modifyHtml();
 
 	function modifyHtml() {
-		var script = document.createElement('script');
-		script.setAttribute('type','text/javascript');
-		script.setAttribute('src','https://raw.githubusercontent.com/mouyase/yande.re_tag_translate_script/dev/KeyMap.js');
-		document.getElementsByTagName('head')[0].appendChild(script);
 	}
 })();

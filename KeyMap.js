@@ -2,7 +2,7 @@ var KeyMap = {};
 
 KeyMap['girls frontline'] = '少女前线';
 KeyMap['girls frontline'] = '少女前线';
-KeyMap['suomi kp31 (girls frontline)';'索米KP31（少女前线）';
+KeyMap['suomi kp31 (girls frontline)'] = '索米KP31（少女前线）';
 KeyMap['animal ears'] = '兽耳';
 KeyMap['maid'] = '女仆';
 KeyMap['thighhighs'] = '过膝袜';
