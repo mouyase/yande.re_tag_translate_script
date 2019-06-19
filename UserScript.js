@@ -12,11 +12,11 @@
 // ==/UserScript==
 (function() {
 	'use strict';
-	var jquery = $.noConflict();
+	var jQuery = $.noConflict();
 
 	modifyHtml();
 
 	function modifyHtml() {
-		var keymap=jquery.ajax({url:"https://raw.githubusercontent.com/mouyase/yande.re_tag_translate_script/master/KeyMap",async:false});
+		var keymap=jQuery.ajax({url:"https://raw.githubusercontent.com/mouyase/yande.re_tag_translate_script/dev/KeyMap",async:false}).responseText;
 	}
 })();
