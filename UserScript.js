@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         Yande.re 标签翻译
+// @name         Yande.re 标签翻译111
 // @namespace    https://github.com/mouyase/yande.re_tag_translate_script
 // @version      0.2
 // @description  汉化Booru类图站的标签
@@ -23,7 +23,6 @@
 		jQuery("ul#tag-sidebar li a").each(function(){
 			var obj = jQuery(this);
 			if(obj.attr('onmouseover')){
-				console.log(obj.attr('onmouseover'));
 				if (KeyMap.hasOwnProperty(obj.html())) {
 					obj.html(KeyMap[obj.html()]+"【"+obj.html()+"】");
 				}
