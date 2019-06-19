@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         Yande.re 标签翻译111
+// @name         Yande.re 标签翻译
 // @namespace    https://github.com/mouyase/yande.re_tag_translate_script
 // @version      0.2
 // @description  汉化Booru类图站的标签
