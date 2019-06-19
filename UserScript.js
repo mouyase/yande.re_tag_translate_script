@@ -9,7 +9,7 @@
 // @match        https://gelbooru.com/*
 // @grant        none
 // @require      https://code.jquery.com/jquery-3.3.1.js
-// @require      https://raw.githubusercontent.com/mouyase/yande.re_tag_translate_script/dev/KeyMap.js
+// @require      https://raw.githubusercontent.com/mouyase/yande.re_tag_translate_script/master/KeyMap.js
 // ==/UserScript==
 (function() {
 	'use strict';
