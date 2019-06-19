@@ -28,8 +28,6 @@
 			}
 		});
 		console.log('TAG汉化已完成');
-		var json = 	JSON.stringify(KeyMap);
-		console.log(json);
 	}
 
 	modifyHtml();
