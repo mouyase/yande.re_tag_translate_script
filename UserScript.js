@@ -13,16 +13,10 @@
 (function() {
 	'use strict';
 	var jQuery = $.noConflict();
-	var KeyMap = {};
 
-	function add(key,value) {
-		KeyMap[key] = value;
-	}
+	var json = jQuery.ajax({url:"https://raw.githubusercontent.com/mouyase/yande.re_tag_translate_script/master/KeyMap.json",async:false}).responseText;
 
-	keymap=document.createElement("script");
-	keymap.setAttribute("type","text/javascript");
-	keymap.setAttribute("src","https://raw.githubusercontent.com/mouyase/yande.re_tag_translate_script/master/KeyMap.js");// 在这里引入了a.js
-	document.body.appendChild(keymap);
+	var KeyMap = JSON.parse(json);
 
 	function modifyHtml() {
 		jQuery("ul#tag-sidebar li a").each(function(){
