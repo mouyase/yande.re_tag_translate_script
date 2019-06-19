@@ -21,7 +21,7 @@
 
 	keymap=document.createElement("script");
 	keymap.setAttribute("type","text/javascript");
-	keymap.setAttribute("src","a.js");// 在这里引入了a.js
+	keymap.setAttribute("src","https://raw.githubusercontent.com/mouyase/yande.re_tag_translate_script/master/KeyMap.js");// 在这里引入了a.js
 	document.body.appendChild(keymap);
 
 	function modifyHtml() {
