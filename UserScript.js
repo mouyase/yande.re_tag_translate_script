@@ -18,7 +18,7 @@
 
 	var KeyMap = JSON.parse(json);
 
-	function modifyHtml() {
+	function modify() {
 		jQuery("ul#tag-sidebar li a").each(function(){
 			var obj = jQuery(this);
 			if(obj.attr('onmouseover')){
@@ -30,5 +30,5 @@
 		console.log('TAG汉化已完成');
 	}
 
-	modifyHtml();
+	modify();
 })();
