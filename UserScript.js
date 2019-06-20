@@ -14,7 +14,7 @@
 	'use strict';
 	var jQuery = $.noConflict();
 
-	var json = jQuery.ajax({url:"https://raw.githubusercontent.com/mouyase/yande.re_tag_translate_script/master/KeyMap.json",async:false}).responseText;
+	var json = jQuery.ajax({url:"https://raw.githubusercontent.com/4cy/Script-BooruTagCN/master/KeyMap.json",async:false}).responseText;
 
 	var KeyMap = JSON.parse(json);
 
