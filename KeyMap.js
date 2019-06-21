@@ -1,5 +1,8 @@
-var Builder = require('./Builder');
-var add = Builder.add;
+var Builder = require('./Builder.js');
+
+function add(key,value) {
+	Builder.KeyMap[key] = {value};
+}
 /*
 ==================================================
 ==================================================
