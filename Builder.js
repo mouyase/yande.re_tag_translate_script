@@ -44,3 +44,7 @@ add('breasts','乳房');
 add('bondage','束缚');
 add('wedding dress','婚纱');
 add('fate/grand order','Fate：冠位指定');
+
+var fs = require("fs");
+
+fs.writeFileSync("KeyMap.json", JSON.stringify(KeyMap));
