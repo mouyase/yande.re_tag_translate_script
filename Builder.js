@@ -6,7 +6,7 @@ function add(key,value) {
 
 module.exports = {
 	add
-}
+};
 
 require('./KeyMap');
 
