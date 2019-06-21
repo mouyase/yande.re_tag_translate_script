@@ -1,4 +1,4 @@
 language: node_js
 
 script:
-  _ node Builder.js
+  - node Builder.js
