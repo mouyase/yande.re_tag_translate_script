@@ -8,4 +8,4 @@
 [https://greasyfork.org/zh-CN/scripts/378606](https://greasyfork.org/zh-CN/scripts/378606)
 
 ## 效果演示
-![](https://raw.githubusercontent.com/mouyase/yande.re_large_picture_script/master/TrYunfGBUn.png)
+![](https://raw.githubusercontent.com/4cy/Script-BooruTagCN/master/Preview.png)
