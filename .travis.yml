@@ -1,0 +1,23 @@
+language: node_js
+node_js: stable
+
+script:
+  - node Builder.js
+
+after_success:
+  - cp ./Preview.png ./master/Preview.png
+  - cp ./UserScript.js ./master/UserScript.js
+  - cp ./Builder.js ./master/Builder.js
+  - cp ./KeyMap.js ./master/KeyMap.js
+  - cp ./README.md ./master/README.md
+  - cd ./master
+  - git init
+  - git config --global user.name "某亚瑟"
+  - git config --global user.email "mouyase@qq.com"
+  - git add .
+  - git commit -m "Update"
+  - git push --force "https://mouyase:${GIT_TOKEN}@github.com/4cy/Script-BooruTagCN.git" master:build
+
+branches:
+  only:
+    - dev
