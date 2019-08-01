@@ -4,7 +4,6 @@ jdk:
   - openjdk8
 
 before_script:
-  - cd 4cy/Script-BooruTagCN
   - chmod +x gradlew
   - ./gradlew jar
 
