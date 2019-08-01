@@ -8,17 +8,14 @@
 // @match        https://gelbooru.com/*
 // @match        https://konachan.com/*
 // @match        https://konachan.net/*
-// @require      https://code.jquery.com/jquery-3.3.1.js
 // ==/UserScript==
 (function() {
 	'use strict';
-	var jQuery = $.noConflict();
-	
 	var KeyMap ={};
 
 	function modify() {
-		jQuery("ul#tag-sidebar li a").each(function(){
-			var obj = jQuery(this);
+		$("ul#tag-sidebar li a").each(function(){
+			var obj = $(this);
 				if (KeyMap.hasOwnProperty(obj.html())) {
 					obj.html(KeyMap[obj.html()]+"["+obj.html()+"]");
 				}
@@ -27,9 +24,8 @@
 	}
 
 	var url = 'https://raw.githubusercontent.com/4cy/Script-BooruTagCN/build/KeyMap.json';
-	jQuery.get(url,function(json){  
+	$.get(url,function(json){
 		KeyMap = JSON.parse(json);
 		modify();
 	}); 
-
 })();
