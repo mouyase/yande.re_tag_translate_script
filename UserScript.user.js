@@ -11,7 +11,7 @@
 // ==/UserScript==
 (function() {
 	'use strict';
-	var KeyMap ={};
+	var KeyMap = {};
 
 	function modify() {
 		$("ul#tag-sidebar li a").each(function(){
