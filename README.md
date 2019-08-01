@@ -1,4 +1,4 @@
-# 图站标签汉化脚本
+# Booru 图站标签汉化插件[![Build Status](https://travis-ci.com/4cy/Script-BooruTagCN.svg?branch=master)](https://travis-ci.com/4cy/Script-BooruTagCN)
 
 主要功能就是把各种图站的标签进行汉化
 
