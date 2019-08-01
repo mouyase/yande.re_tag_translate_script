@@ -1,16 +1,22 @@
-language: node_js
-node_js: stable
+language: java
+
+jdk:
+  - openjdk8
+
+install:
+  - git clone https://github.com/4cy/Script-BooruTagCN
+  - cd Script-BooruTagCN
+  - chmod +x gradlew
+  - ./gradlew jar
 
 script:
-  - node Builder.js
+  - java -jar ./build/libs/Script-BooruTagCN.jar
 
 after_success:
-  - cp ./Preview.png ./master/Preview.png
-  - cp ./UserScript.js ./master/UserScript.js
-  - cp ./Builder.js ./master/Builder.js
-  - cp ./KeyMap.js ./master/KeyMap.js
-  - cp ./README.md ./master/README.md
-  - cd ./master
+  - mkdir push
+  - cp ./KeyMap.json ./push/KeyMap.json
+  - cp ./UserScript.user.js ./push/UserScript.user.js
+  - cd ./push
   - git init
   - git config --global user.name "某亚瑟"
   - git config --global user.email "mouyase@qq.com"
@@ -20,4 +26,4 @@ after_success:
 
 branches:
   only:
-    - dev
+    - master
