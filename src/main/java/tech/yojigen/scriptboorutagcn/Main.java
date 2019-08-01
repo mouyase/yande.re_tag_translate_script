@@ -14,7 +14,6 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.logging.Logger;
 
 public class Main {
     private static Gson gson = new GsonBuilder().disableHtmlEscaping().create();
