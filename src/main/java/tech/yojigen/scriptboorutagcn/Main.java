@@ -22,7 +22,7 @@ public class Main {
         System.out.println("程序启动");
         Document document = Jsoup.parse(new URL("https://github.com/4cy/Script-BooruTagCN/wiki/Tags"), 1000 * 60);
         System.out.println("数据加载完成");
-        Map<String, String> map = new HashMap<String, String>();
+        Map<String, String> map = new HashMap<>();
         for (Element element : document.select(".markdown-body tr")) {
             if (!element.toString().contains("标签")) {
                 map.put(element.getElementsByAttributeValue("align", "left").get(0).html(), element.getElementsByAttributeValue("align", "left").get(1).html());
