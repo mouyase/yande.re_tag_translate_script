@@ -7,5 +7,7 @@
 ## 下载地址
 [https://greasyfork.org/zh-CN/scripts/378606](https://greasyfork.org/zh-CN/scripts/378606)
 
+[https://raw.githubusercontent.com/4cy/Script-BooruTagCN/build/UserScript.user.js](https://raw.githubusercontent.com/4cy/Script-BooruTagCN/build/UserScript.user.js)
+
 ## 效果演示
 ![](https://raw.githubusercontent.com/4cy/Script-BooruTagCN/master/Preview.png)
