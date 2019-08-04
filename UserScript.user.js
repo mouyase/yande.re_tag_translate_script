@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Booru 图站标签汉化插件
-// @namespace    https://github.com/4cy/Script-BooruTagCN
-// @version      0.3.3
+// @namespace    https://github.com/mouyase/Script-BooruTagCN
+// @version      0.3.4
 // @description  Booru 图站标签汉化插件，用于汉化各种图库网站的标签
 // @author       某亚瑟
 // @match        https://yande.re/*
@@ -11,21 +11,23 @@
 // ==/UserScript==
 (function() {
 	'use strict';
-	var KeyMap = {};
 
 	function modify() {
-		$("ul#tag-sidebar li a").each(function(){
-			var obj = $(this);
-				if (KeyMap.hasOwnProperty(obj.html())) {
-					obj.html(KeyMap[obj.html()]+"["+obj.html()+"]");
+		jQuery("ul#tag-sidebar li a").each(function(){
+			var obj = jQuery(this);
+			var tag = decodeURIComponent(obj.attr('href')).split("tags=")[1];
+			if(tag){
+				if (tag.indexOf("-")==-1&&tag.indexOf("+")==-1&&tag.indexOf("?")==-1) {
+					var url = 'https://tags.4cy.me/'+window.btoa(tag);
+					console.log(url);
+					jQuery.get(url,function(translate){
+						obj.html(translate);
+					});
 				}
+			}
 		});
 		console.log('TAG汉化已完成');
 	}
 
-	var url = 'https://raw.githubusercontent.com/4cy/Script-BooruTagCN/build/KeyMap.json';
-	$.get(url,function(json){
-		KeyMap = JSON.parse(json);
-		modify();
-	}); 
+	modify();
 })();
