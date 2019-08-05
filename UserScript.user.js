@@ -19,7 +19,6 @@
 			if(tag){
 				if (tag.indexOf("-")==-1&&tag.indexOf("+")==-1&&tag.indexOf("?")==-1) {
 					var url = 'https://tags.4cy.me/'+window.btoa(tag);
-					console.log(url);
 					jQuery.get(url,function(translate){
 						obj.html(translate);
 					});
