@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Booru 图站标签汉化插件
 // @namespace    https://github.com/mouyase/Script-BooruTagCN
-// @version      0.3.4
+// @version      0.3.5
 // @description  Booru 图站标签汉化插件，用于汉化各种图库网站的标签
 // @author       某亚瑟
 // @match        https://yande.re/*
@@ -18,7 +18,7 @@
 			var tag = decodeURIComponent(obj.attr('href')).split("tags=")[1];
 			if(tag){
 				if (tag.indexOf("-")==-1&&tag.indexOf("+")==-1&&tag.indexOf("?")==-1) {
-					var url = 'https://tags.4cy.me/'+window.btoa(tag);
+					var url = 'https://cdn.jsdelivr.net/gh/mouyase/BooruTags-CN@gh-pages/'+window.btoa(tag);
 					jQuery.get(url,function(translate){
 						obj.html(translate);
 					});
