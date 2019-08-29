@@ -37,6 +37,18 @@
                 }
             }
         });
+        jQuery("tr.odd a").each(function(){
+            var obj = jQuery(this);
+            var tag = decodeURIComponent(obj.attr('href')).split("tags=")[1];
+            if(tag){
+                if (tag.indexOf("-")==-1&&tag.indexOf("+")==-1&&tag.indexOf("?")==-1) {
+                    var url = 'https://cdn.jsdelivr.net/gh/mouyase/BooruTags-CN@gh-pages/'+window.btoa(tag);
+                    jQuery.get(url,function(translate){
+                        obj.html(translate);
+                    });
+                }
+            }
+        });
         console.log('TAG汉化已完成');
     }
     modify();
