@@ -18,7 +18,7 @@
             var tag = decodeURIComponent(obj.attr('href')).split("tags=")[1];
             if(tag){
                 if (tag.indexOf("-")==-1&&tag.indexOf("+")==-1&&tag.indexOf("?")==-1) {
-                    var url = 'https://cdn.jsdelivr.net/gh/mouyase/BooruTags-CN@gh-pages/'+window.btoa(tag);
+                    var url = 'https://cdn.jsdelivr.net/gh/BooruTagTranslation/Database@gh-pages/'+window.btoa(tag);
                     jQuery.get(url,function(translate){
                         obj.html(translate);
                     });
@@ -30,7 +30,7 @@
             var tag = decodeURIComponent(obj.attr('href')).split("tags=")[1];
             if(tag){
                 if (tag.indexOf("-")==-1&&tag.indexOf("+")==-1&&tag.indexOf("?")==-1) {
-                    var url = 'https://cdn.jsdelivr.net/gh/mouyase/BooruTags-CN@gh-pages/'+window.btoa(tag);
+                    var url = 'https://cdn.jsdelivr.net/gh/BooruTagTranslation/Database@gh-pages/'+window.btoa(tag);
                     jQuery.get(url,function(translate){
                         obj.html(translate);
                     });
